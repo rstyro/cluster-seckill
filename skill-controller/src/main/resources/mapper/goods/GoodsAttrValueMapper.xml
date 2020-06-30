@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.lrshuai.skill.goods.mapper.GoodsAttrValueMapper">
+    <select id="getGoodsAttrValues" resultType="top.lrshuai.skill.goods.entity.GoodsAttrValue">
+        SELECT
+         v.*,
+         k.attr_key
+        from
+            goods_attr_value v
+        LEFT JOIN
+            goods_attr_key k
+        on
+        v.attr_key_id=k.id WHERE v.id IN(${ids})
+    </select>
+</mapper>
